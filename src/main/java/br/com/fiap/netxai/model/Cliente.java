@@ -1,9 +1,19 @@
 package br.com.fiap.netxai.model;
 
+import java.time.LocalDate;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.com.fiap.netxai.validation.FidelidadeCliente;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 
@@ -13,9 +23,30 @@ public class Cliente {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank(message = "{cliente.nome.not.blank}")
+    private String nome;
+    
+    @NotBlank(message = "{cliente.cpf.not.blank}")
+    @Size(min= 11, max = 11, message = "{cliente.cpf.size}")
     private String cpf;
 
-    private Boolean fidelidade;
+    @NotBlank(message = "{cliente.email.not.blank}")
+    private String email;
+
+    @NotBlank(message = "{cliente.senha.not.blank}")
+    private String senha;
+
+    private String genero;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate dt_nascimento;
+
+    @Size(min= 14, max = 15, message = "{cliente.telefone.size}")
+    private String telefone;
+
+    private int pontos;
+
+    @FidelidadeCliente(message = "{cliente.tipo.tipocliente}")
+    private String fidelidade; // FILIADO | NÃOFILIADO
     
 }
