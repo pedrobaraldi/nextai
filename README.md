@@ -1,11 +1,11 @@
 # nextia
 
-## Requisitos
-
-- [x] CRUD Categorias
-- [ ] CRUD Movimentações
-- [ ] Dashboard
-- [ ] Autenticação
+#Integrantes
+Bianca Barreto RM:551848
+Gabriel Cirillo RM:98214
+Julia Akemi RM:98032
+Pedro Baraldi Sá RM:98060
+Mateus Fattori RM:97904 Responsavel pelo Challenge de Java
 
 ## Endpoints
 
