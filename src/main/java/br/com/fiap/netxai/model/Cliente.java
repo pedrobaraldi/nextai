@@ -12,7 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -41,6 +40,7 @@ public class Cliente {
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate dt_nascimento;
 
+    @NotBlank(message = "{cliente.telefone.not.blank}")
     @Size(min= 14, max = 15, message = "{cliente.telefone.size}")
     private String telefone;
 

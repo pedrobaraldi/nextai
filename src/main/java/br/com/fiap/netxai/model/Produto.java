@@ -19,6 +19,7 @@ public class Produto {
     @NotBlank(message = "{produto.nome.not.blank}")
     private String nome;
     
+    @NotBlank(message = "{produto.categoria.not.blank}")
     private String categoria;
 
     @Positive
