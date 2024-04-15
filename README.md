@@ -1,4 +1,4 @@
-# MoneyMinder
+# nextia
 
 ## Requisitos
 
@@ -189,9 +189,10 @@ Altera o produto com o `id` informado.
 **Schema**
 ```js
 {
-    "nome": "Arroz",
-    "categoria": "gãos",
-    "valor": 45.99
+	"id": 1,
+	"nome": "Arroz",
+	"categoria": "gãos",
+	"valor": 45.99
 }
 
 ```
