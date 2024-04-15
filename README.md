@@ -18,7 +18,13 @@ Dentro da Pasta documentacao está a documentação Word junto com os arquivos J
 
 ## Como rodar 
 
-Deve abrir o projeto no visual studio code e com a extenção Extension Pack for Java instalada apertar F5 no tecaldo para rodar o código 
+Deve abrir o projeto no visual studio code e com a extenção Extension Pack for Java instalada apertar F5 no tecaldo para rodar o código e importar o arquivo JSON para o Postman ou o Insominia e executar os endpoints nesses softwares
+
+## imagem dos diagramas;
+
+![image](https://github.com/MateusFattori/nextai/assets/83764798/d88d0c0a-96e8-4605-9b4e-3dc6e2552c0c)
+
+![image](https://github.com/MateusFattori/nextai/assets/83764798/d8888af4-334e-4fc1-8d2c-7d1758559943)
 
 ## Endpoints
 
