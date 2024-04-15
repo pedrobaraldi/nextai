@@ -12,6 +12,10 @@ Pedro Baraldi Sá RM:98060
 
 Mateus Fattori RM:97904 Responsavel pelo Challenge de Java
 
+## Documenação
+
+Dentro da Pasta documentacao está a documentação Word junto com os arquivos JSON para testar o código tanto no Postman quanto no Insominia
+
 ## Como rodar 
 
 Deve abrir o projeto no visual studio code e com a extenção Extension Pack for Java instalada apertar F5 no tecaldo para rodar o código 
