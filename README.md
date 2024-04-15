@@ -1,6 +1,7 @@
 # nextia
 
-##Integrantes
+## Integrantes
+
 Bianca Barreto RM:551848
 Gabriel Cirillo RM:98214
 Julia Akemi RM:98032
