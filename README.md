@@ -22,7 +22,7 @@ Deve abrir o projeto no visual studio code e com a extenção Extension Pack for
 
 ## imagem dos diagramas;
 
-![image](https://github.com/MateusFattori/nextai/assets/83764798/d88d0c0a-96e8-4605-9b4e-3dc6e2552c0c)
+![image](https://github.com/MateusFattori/nextai/assets/83764798/036f95fa-eec2-4e42-bafa-1624da304861)
 
 ![image](https://github.com/MateusFattori/nextai/assets/83764798/d8888af4-334e-4fc1-8d2c-7d1758559943)
 
