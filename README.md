@@ -9,19 +9,19 @@
 
 ## Endpoints
 
-### Categorias
+### Cliente
 
-`GET` /categoria
+`GET` /cliente
 
-Lista todas as categorias cadastradas no sistema.
+Lista todas os clientes cadastradas no sistema.
 
 `200` sucesso
 
 ---
 
-`GET` /categoria/{id}
+`GET` /cliente/{id}
 
-Retorna os detalhes de uma categoria com o `id` informado.
+Retorna os detalhes de uma cliente com o `id` informado.
 
 **códigos de status**
 
@@ -29,16 +29,20 @@ Retorna os detalhes de uma categoria com o `id` informado.
 `404` id não encontrado
 
 ---
-`POST` /categoria
+`POST` /cliente
 
-Cadastrar uma nova categoria.
+Cadastrar uma novo cliente.
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|-----------
-|nome|string|✅|Um nome curto para identificar a categoria
-|icone|string|❌|O nome do ícone conforme biblioteca material design
-
-
+|nome|string|✅|Um nome curto para identificar o cliente
+|cpf|string|✅|Cpf do cliente para acessar sua conta
+|email|string|✅|Email do cliente para criação da conta
+|senha|string|✅| Senha do cliente para acessar sua conta
+|genero|string|❌| Genero do cliente
+|dt_nascimento|LocalDate|✅| Data de nascimento do cliente 
+|pontos|int|❌|Pontos do cliente adigirido pela fidelidade com o sistema
+|fidelidade|string|✅|Se o cliente é filiado ou não filiado
 
 **códigos de status**
 
@@ -47,9 +51,9 @@ Cadastrar uma nova categoria.
 
 ---
 
-`DELETE` /categoria/{id} 
+`DELETE` /cliente/{id} 
 
-Apaga a catagoria com o `id` informado.
+Apaga o cliente com o `id` informado.
 
 **códigos de status**
 
@@ -58,14 +62,20 @@ Apaga a catagoria com o `id` informado.
 
 ---
 
-`PUT` /categoria/{id} 
+`PUT` /cliente/{id} 
 
-Altera a catagoria com o `id` informado.
+Altera o cliente com o `id` informado.
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|-----------
-|nome|string|✅|Novo nome curto para identificar a categoria
-|icone|string|✅|Novo nome do ícone conforme biblioteca material design
+|nome|string|✅|Um nome curto para identificar o cliente
+|cpf|string|✅|Cpf do cliente para acessar sua conta
+|email|string|✅|Email do cliente para criação da conta
+|senha|string|✅| Senha do cliente para acessar sua conta
+|genero|string|✅| Genero do cliente
+|dt_nascimento|LocalDate|✅| Data de nascimento do cliente 
+|pontos|int|✅|Pontos do cliente adigirido pela fidelidade com o sistema
+|fidelidade|string|✅|Se o cliente é filiado ou não filiado
 
 **códigos de status**
 
@@ -79,9 +89,109 @@ Altera a catagoria com o `id` informado.
 
 ```js
 {
-    "id": 1,
-    "nome": "Alimentação",
-    "icone": "fast-food"
+	"id": 1,
+	"nome": "Julia",
+	"cpf": "56842367104",
+	"email": "julia@gmail.com",
+	"senha": "12345",
+	"genero": "feminino",
+	"dt_nascimento": "2003-06-24",
+	"telefone": "551199789664319",
+	"pontos": 0,
+	"fidelidade": "NÃOFILIADO"
+}
+
+```
+**Schema**
+
+```js
+{
+    '"id": 2,
+    "nome": "Bia",
+    "cpf": "56842367104",
+    "email": "bia@gmail.com",
+    "senha": "1234",
+    "genero": "feminino",
+    "dt_nascimento": "2003-06-24",
+    "telefone": "55119975864319",
+	"pontos": 200,
+	"fidelidade": "FILIADO"
+	}
+
+```
+
+### Cliente
+
+`GET` /produto
+
+Lista todas os produtos cadastradas no sistema.
+
+`200` sucesso
+
+---
+
+`GET` /produto/{id}
+
+Retorna os detalhes de uma produto com o `id` informado.
+
+**códigos de status**
+
+`200` sucesso
+`404` id não encontrado
+
+---
+`POST` /produto
+
+Cadastrar uma novo produto.
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|-----------
+|nome|string|✅|Um nome curto para identificar o produto
+|categoria|string|✅|Categoria que o produto pertence
+|valor|string|✅|Valor do produto
+
+**códigos de status**
+
+`201` criado com sucesso
+`400` validação falhou
+
+---
+
+`DELETE` /produto/{id} 
+
+Apaga o produto com o `id` informado.
+
+**códigos de status**
+
+`204` apagado com sucesso
+`404` id não encontrado
+
+---
+
+`PUT` /produto/{id} 
+
+Altera o produto com o `id` informado.
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|-----------
+|nome|string|✅|Um nome curto para identificar o produto
+|categoria|string|✅|Categoria que o produto pertence
+|valor|string|✅|Valor do produto
+
+**códigos de status**
+
+`200` sucesso
+`404` id não encontrado
+`400` validação falhou
+
+---
+
+**Schema**
+```js
+{
+    "nome": "Arroz",
+    "categoria": "gãos",
+    "valor": 45.99
 }
 
 ```
