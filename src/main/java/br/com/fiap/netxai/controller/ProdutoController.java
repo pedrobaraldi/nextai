@@ -39,9 +39,10 @@ public class ProdutoController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Produto create(@RequestBody Produto produto){
+    public ResponseEntity<Produto> create(@RequestBody Produto produto){
         log.info("cadastrando produto: {}", produto);
-        return produtoRepository.save(produto);
+        Produto savedProduto = produtoRepository.save(produto);
+        return ResponseEntity.status(CREATED).body(savedProduto);
     }
 
     @GetMapping("{id}")
@@ -52,24 +53,24 @@ public class ProdutoController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
-    public void destorty(@PathVariable Long id){
-        log.info("apagando produto", id);
+    public void destroy(@PathVariable Long id){
+        log.info("apagando produto {}", id);
         verificarSeExisteProduto(id);
         produtoRepository.deleteById(id);
     }
 
     @PutMapping("{id}")
-    public Produto update(@PathVariable Long id, @RequestBody Produto produto){
-        log.info("atualizando produto por id {} para id {}", id, produto);
+    public ResponseEntity<Produto> update(@PathVariable Long id, @RequestBody Produto produto){
+        log.info("atualizando produto id {} para {}", id, produto);
         verificarSeExisteProduto(id);
         produto.setId(id);
-        return produtoRepository.save(produto);
+        Produto updatedProduto = produtoRepository.save(produto);
+        return ResponseEntity.ok(updatedProduto);
     }
 
     private void verificarSeExisteProduto(Long id){
-        produtoRepository.findById(id).orElseThrow( 
-            () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado")
-        );
+        produtoRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto não encontrado"));
     }
 
 }

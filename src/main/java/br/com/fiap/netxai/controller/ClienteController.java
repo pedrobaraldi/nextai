@@ -39,9 +39,10 @@ public class ClienteController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Cliente create(@RequestBody Cliente cliente){
+    public ResponseEntity<Cliente> create(@RequestBody Cliente cliente){
         log.info("cadastrando cliente: {}", cliente);
-        return clienteRepository.save(cliente);
+        Cliente savedCliente = clienteRepository.save(cliente);
+        return ResponseEntity.status(CREATED).body(savedCliente);
     }
 
     @GetMapping("{id}")
@@ -51,14 +52,15 @@ public class ClienteController {
     }
 
     @PutMapping("{id}")
-    public Cliente update(@PathVariable Long id, @RequestBody Cliente cliente){
+    public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente cliente){
         log.info("atualizando cliente id {} para {}", id, cliente);
-        
+
         verificarSeExisteCliente(id);
 
         cliente.setId(id);
-        return clienteRepository.save(cliente);
+        Cliente updatedCliente = clienteRepository.save(cliente);
 
+        return ResponseEntity.ok(updatedCliente);
     }
 
     @DeleteMapping("{id}")
@@ -72,11 +74,8 @@ public class ClienteController {
 
 
     private void verificarSeExisteCliente(Long id) {
-        clienteRepository
-            .findById(id)
-            .orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrada" )
-            );
+        clienteRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
     }
 
 }
